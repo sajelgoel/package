@@ -133,17 +133,17 @@
             {{ (cart | async).length }}
           </span>
           }
+          <ul class="dropdown-menu text-small">
+            <li><a class="dropdown-item" href="#">Cart Items</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            @for (cartItem of cart | async; track cartItem) {
+            <li>
+              <div>Beach Adventure Combo</div>
+            </li>
+            }
+          </ul>
         </div>
 
-        <ul class="dropdown-menu text-small">
-          <li><a class="dropdown-item" href="#">Cart Items</a></li>
-          <li><hr class="dropdown-divider" /></li>
-          @for (cartItem of cart | async; track cartItem) {
-          <li>
-            <div>Beach Adventure Combo</div>
-          </li>
-          }
-        </ul>
         <a
           href="#"
           class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
