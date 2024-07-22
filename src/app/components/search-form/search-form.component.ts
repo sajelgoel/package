@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-form',
@@ -17,8 +18,11 @@ export class SearchFormComponent {
     numberOfTraveller: new FormControl('2'),
   });
 
+  constructor(private router: Router) {}
+
   onSubmit() {
     // TODO: Use EventEmitter with form value
     console.warn(this.packageForm.value);
+    this.router.navigateByUrl('results');
   }
 }

@@ -107,7 +107,43 @@
         </li>
       </ul>
 
-      <div class="dropdown text-end">
+      <div class="align-items-center d-flex dropdown text-end">
+        <div class="position-relative"></div>
+
+        <div type="button" class="position-relative">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-bag mx-4"
+            viewBox="0 0 16 16"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <path
+              d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"
+            />
+          </svg>
+          @if((cart | async).length > 1){
+          <span
+            class="position-absolute top-0 translate-middle badge rounded-pill text-bg-secondary left-70"
+          >
+            {{ (cart | async).length }}
+          </span>
+          }
+        </div>
+
+        <ul class="dropdown-menu text-small">
+          <li><a class="dropdown-item" href="#">Cart Items</a></li>
+          <li><hr class="dropdown-divider" /></li>
+          @for (cartItem of cart | async; track cartItem) {
+          <li>
+            <div>Beach Adventure Combo</div>
+          </li>
+          }
+        </ul>
         <a
           href="#"
           class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
@@ -122,6 +158,7 @@
             class="rounded-circle"
           />
         </a>
+
         <ul class="dropdown-menu text-small">
           <li><a class="dropdown-item" href="#">Profile</a></li>
           <li><hr class="dropdown-divider" /></li>

@@ -1,41 +1,31 @@
 @for (package of packageCombos; track package) {
-<div class="border border-3 my-5 rounded-2">
-  <div>{{ package.packageName }}</div>
+<div class="border border-3 my-5 mcrounded-2 py-3 px-2">
+  <div class="display-6 py-2">{{ package.packageName }}</div>
   <div class="card-group">
-    <!-- <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Flight</h5>
-        @for (flight of package.flights; track flight) {
-        <div class="card-text">
-          <div>{{ flight.airline }}</div>
-          <div>{{ flight.departure | date }} - {{ flight.arrival | date }}</div>
-        </div>
-        <p class="card-text">
-          <small class="text-body-secondary">{{
-            flight.price | currency
-          }}</small>
-        </p>
-        }
-      </div>
-    </div> -->
     <app-combos-card
       productName="flights"
       [prodctInfo]="package.flights"
+      class="card"
     ></app-combos-card>
     <app-combos-card
       productName="hotels"
       [prodctInfo]="package.hotels"
+      class="card"
     ></app-combos-card>
     <app-combos-card
       productName="cars"
       [prodctInfo]="package.cars"
+      class="card"
     ></app-combos-card>
     <app-combos-card
       productName="activities"
       [prodctInfo]="package.activities"
+      class="card"
     ></app-combos-card>
   </div>
-  <div>Price : {{ package.priceCombo | currency }}</div>
+  <div class="d-flex justify-content-end">
+    Price : {{ package.priceCombo | currency }}
+  </div>
 </div>
 
 }
