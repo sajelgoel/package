@@ -1,0 +1,77 @@
+<div class="card">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="16"
+    fill="currentColor"
+    class="bi bi-chevron-left position-absolute top-50 border rounded-4"
+    viewBox="0 0 16 16"
+    (click)="leftIconClicked()"
+    *ngIf="index !== 0"
+  >
+    <path
+      fill-rule="evenodd"
+      d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
+    />
+  </svg>
+  <div class="card-body">
+    @if(productName === 'flights'){
+    <h5 class="card-title">Flight</h5>
+    @for (flight of prodctInfo; track flight; let idx = $index) { @if(index ===
+    idx){
+    <div class="card-text">
+      <div>{{ flight.airline }}</div>
+      <div>{{ flight.departure | date }} - {{ flight.arrival | date }}</div>
+    </div>
+    <p class="card-text">
+      <small class="text-body-secondary">{{ flight.price | currency }}</small>
+    </p>
+    } } } @if(productName === 'hotels'){
+    <h5 class="card-title">Hotels</h5>
+    @for (hotel of prodctInfo; track hotel; let idx = $index) { @if(index ===
+    idx){
+    <div class="card-text">
+      <div>{{ hotel.name }}</div>
+      <div>{{ hotel.checkIn | date }} - {{ hotel.checkOut | date }}</div>
+    </div>
+    <p class="card-text">
+      <small class="text-body-secondary">{{ hotel.price | currency }}</small>
+    </p>
+    }} } @if(productName === 'cars'){
+    <h5 class="card-title">Car</h5>
+    @for (car of prodctInfo; track car; let idx = $index) { @if(index === idx){
+    <div class="card-text">
+      <div>{{ car.rentalCompany }}</div>
+      <div>{{ car.pickUp | date }} - {{ car.dropOff | date }}</div>
+    </div>
+    <p class="card-text">
+      <small class="text-body-secondary">{{ car.price | currency }}</small>
+    </p>
+    } }} @if(productName === 'activities'){
+    <h5 class="card-title">Activities</h5>
+    @for (activity of prodctInfo; track activity; let idx = $index) { @if(index
+    === idx){
+    <div class="card-text">
+      <div>{{ activity.name }}</div>
+    </div>
+    <p class="card-text">
+      <small class="text-body-secondary">{{ activity.price | currency }}</small>
+    </p>
+    } }}
+  </div>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="16"
+    fill="currentColor"
+    class="bi bi-chevron-right position-absolute top-50 end-0 border rounded-4"
+    viewBox="0 0 16 16"
+    (click)="rightIconClicked()"
+    *ngIf="index !== prodctInfo.length - 1"
+  >
+    <path
+      fill-rule="evenodd"
+      d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"
+    />
+  </svg>
+</div>

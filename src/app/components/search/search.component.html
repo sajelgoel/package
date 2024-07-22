@@ -1,0 +1,22 @@
+<div class="container my-5">
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    @for (package of packages; track package) {
+
+    <div class="col" (click)="navigateToResults(package)">
+      <div class="card">
+        <img
+          [src]="package.packageImage"
+          class="card-img-top"
+          [alt]="package.packageName"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ package.packageName }}</h5>
+          <p class="card-text">
+            {{ package.packageDescription }}
+          </p>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</div>
