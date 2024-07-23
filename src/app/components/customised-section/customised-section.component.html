@@ -1,0 +1,64 @@
+<div class="border border-3 my-5 rounded-2 py-3 px-2">
+  <div class="display-6 py-2">{{ productName | titlecase }}</div>
+  <div class="card-group">
+    @if(productName === 'flights'){ @for (flight of section; track flight; let
+    idx = $index) {
+    <div class="card">
+      <div class="card-body">
+        <div class="card-text">
+          <div>{{ flight.airline }}</div>
+          <div>{{ flight.departure | date }} - {{ flight.arrival | date }}</div>
+        </div>
+        <p class="card-text">
+          <small class="text-body-secondary">{{
+            flight.price | currency
+          }}</small>
+        </p>
+      </div>
+    </div>
+    } } @if(productName === 'hotels'){ @for (hotel of section; track hotel; let
+    idx = $index) {
+    <div class="card">
+      <div class="card-body">
+        <div class="card-text">
+          <div>{{ hotel.name }}</div>
+          <div>{{ hotel.checkIn | date }} - {{ hotel.checkOut | date }}</div>
+        </div>
+        <p class="card-text">
+          <small class="text-body-secondary">{{
+            hotel.price | currency
+          }}</small>
+        </p>
+      </div>
+    </div>
+    } } @if(productName === 'cars'){ @for (car of section; track car; let idx =
+    $index) {
+    <div class="card">
+      <div class="card-body">
+        <div class="card-text">
+          <div>{{ car.rentalCompany }}</div>
+          <div>{{ car.pickUp | date }} - {{ car.dropOff | date }}</div>
+        </div>
+        <p class="card-text">
+          <small class="text-body-secondary">{{ car.price | currency }}</small>
+        </p>
+      </div>
+    </div>
+    } } @if(productName === 'activities'){ @for (activity of section; track
+    activity; let idx = $index) {
+    <div class="card">
+      <div class="card-body">
+        <div class="card-text">
+          <div>{{ activity.name }}</div>
+        </div>
+        <p class="card-text">
+          <small class="text-body-secondary">{{
+            activity.price | currency
+          }}</small>
+        </p>
+      </div>
+    </div>
+    } }
+  </div>
+  <div class="d-flex justify-content-end">Add to Cart</div>
+</div>

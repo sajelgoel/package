@@ -11,6 +11,7 @@ import { Component, Input } from '@angular/core';
 export class CombosCardComponent {
   @Input() productName: string = '';
   @Input() prodctInfo: any;
+  @Input() showSideIcons = true;
   index = 0;
 
   leftIconClicked() {

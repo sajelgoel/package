@@ -1,3 +1,5 @@
+<app-search-form></app-search-form>
+
 <div class="container my-5">
   <div class="row row-cols-1 row-cols-md-2 d-flex justify-content-center g-4">
     <div
@@ -5,13 +7,30 @@
       role="group"
       aria-label="Large button group"
     >
-      <button type="button" class="btn btn-outline-primary text-bg-primary">
+      <button
+        type="button"
+        class="btn btn-outline-primary"
+        [ngClass]="{ 'text-bg-primary': tabSelected === 'combos' }"
+        (click)="changeTab('combos')"
+      >
         Combos
       </button>
-      <button type="button" class="btn btn-outline-primary">Customized</button>
+      <button
+        type="button"
+        class="btn btn-outline-primary"
+        [ngClass]="{ 'text-bg-primary': tabSelected === 'customized' }"
+        (click)="changeTab('customized')"
+      >
+        Customized
+      </button>
     </div>
   </div>
   <div class="row">
+    @if(tabSelected === 'combos'){
     <app-combos></app-combos>
+    } @else{
+    <app-customised></app-customised>
+
+    }
   </div>
 </div>

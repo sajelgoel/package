@@ -8,7 +8,7 @@
     role="button"
     viewBox="0 0 16 16"
     (click)="leftIconClicked()"
-    *ngIf="index !== 0"
+    *ngIf="showSideIcons && index !== 0"
   >
     <path
       fill-rule="evenodd"
@@ -68,7 +68,7 @@
     class="bi bi-chevron-right position-absolute top-50 end-0 border rounded-4"
     viewBox="0 0 16 16"
     (click)="rightIconClicked()"
-    *ngIf="index !== prodctInfo.length - 1"
+    *ngIf="showSideIcons && index !== prodctInfo.length - 1"
     role="button"
   >
     <path
