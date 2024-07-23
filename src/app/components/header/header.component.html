@@ -140,11 +140,17 @@
             <li>
               <div>Beach Adventure Combo</div>
             </li>
-            }
+            } @if((cart | async).length > 1){
+
             <li><hr class="dropdown-divider" /></li>
             <li>
-              <div routerLink="checkout/review">Go to checkout</div>
+              <div (click)="goToReview()">Go to checkout</div>
             </li>
+            } @else{
+            <li>
+              <div>Cart is empty</div>
+            </li>
+            }
           </ul>
         </div>
 

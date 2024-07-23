@@ -18,4 +18,8 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+  goToReview() {
+    this.cartService.gotoCheckout();
+  }
 }

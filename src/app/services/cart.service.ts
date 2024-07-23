@@ -6,19 +6,25 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class CartService {
-  private cartItem: any = [1, 2, 3];
+  private cartItem: any = [];
   cartItem$ = new BehaviorSubject(this.cartItem);
 
   constructor(private router: Router) {}
 
   addToCart(item: any) {
     this.cartItem.push(item);
+    this.cartItem$.next(this.cartItem);
   }
 
   removeFromCart(item: any) {
     this.cartItem = this.cartItem.filter(
       (cartitem: any) => cartitem.id !== item.id
     );
+    this.cartItem$.next(this.cartItem);
+  }
+
+  clearCart() {
+    this.cartItem$.next([]);
   }
 
   gotoCheckout() {
